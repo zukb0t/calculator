@@ -11,16 +11,19 @@ const display = document.querySelector(".display");
 const clear = document.querySelector(".clear");
 const equals = document.querySelector(".equals");
 
+//basic arithmetic
 const add = (a,b) => a+b;
 const subtract = (a,b) => a-b;
 const multiply = (a,b) => a*b;
 const divide = (a,b) => a/b;
 
+
+//displayInputs displays values and checkDecimals checks if a number has more than two ".". For example, 5..55 is not allowed.
 const displayInput = (input) => display.textContent = input;
-const checkDecimal = (number) => number.split(".").length > 2 ? number.substring(0,number.length-1)
-                                :number;
+const checkDecimal = (number) => number.split(".").length > 2 ? number.substring(0,number.length-1):number;
 
 
+//operate will do the basic arithmetic and calls the arrow functions above.
 function operate(num1, num2, operator){
     const value1 = parseFloat(num1);
     const value2 = parseFloat(num2);
@@ -46,6 +49,7 @@ function operate(num1, num2, operator){
     return Math.round(a * 100)/100;
 }
 
+//get values and updates constant_one and constant_two
 function getNumbers(event){
     if(operator===""){
         constant_one += event.target.textContent;
@@ -59,6 +63,8 @@ function getNumbers(event){
     }
 }
 
+
+//gets the resultant if an operator or an equal sign is clicked.
 function getResult(event){
     if(operator===""){
         operator = event.target.textContent;
@@ -71,11 +77,14 @@ function getResult(event){
     }
 }
 
+//updates calculations when an operator or equal sign is clicked
 function updateCalculations(number){
     constant_one = number;
     constant_two = "";
 }
 
+
+//clears values
 function erase(){
     display.textContent = "0";
     operator = "";
