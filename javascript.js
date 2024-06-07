@@ -17,7 +17,8 @@ const multiply = (a,b) => a*b;
 const divide = (a,b) => a/b;
 
 const displayInput = (input) => display.textContent = input;
-const checkDecimal = (number) => number.split(".").length > 2 ? alert("hello you have reached this message... press the reset button") : displayInput(number);
+const checkDecimal = (number) => number.split(".").length > 2 ? number.substring(0,number.length-1)
+                                :number;
 
 
 function operate(num1, num2, operator){
@@ -46,17 +47,14 @@ function operate(num1, num2, operator){
 }
 
 function getNumbers(event){
-    let x;
     if(operator===""){
         constant_one += event.target.textContent;
-        x = constant_one;
-        checkDecimal(x);
+        constant_one = checkDecimal(constant_one);
         displayInput(constant_one);
     }
     else{
         constant_two += event.target.textContent;
-        x = constant_two;
-        checkDecimal(x);
+        constant_two = checkDecimal(constant_two);
         displayInput(constant_two);
     }
 }
