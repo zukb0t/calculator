@@ -17,16 +17,77 @@ const multiply = (a,b) => a*b;
 const divide = (a,b) => a/b;
 
 const displayInput = (input) => display.textContent = input;
+const checkDecimal = (number) => number.split(".").length > 2 ? alert("hello you have reached this message... press the reset button") : displayInput(number);
+
+
+function operate(num1, num2, operator){
+    const value1 = parseFloat(num1);
+    const value2 = parseFloat(num2);
+    switch(operator){
+        case("+"):
+            a = add(value1, value2);
+        break;
+        case("-"):
+            a = subtract(value1,value2);
+        break;
+        case("*"):
+            a = multiply(value1,value2);
+        break;
+        case("/"):
+            if(value2===0){
+                return "cannot divide by zero";
+            }
+            else{
+                a = divide(value1,value2);
+            }
+        break;
+    }
+    return Math.round(a * 100)/100;
+}
 
 function getNumbers(event){
+    let x;
     if(operator===""){
         constant_one += event.target.textContent;
+        x = constant_one;
+        checkDecimal(x);
         displayInput(constant_one);
     }
     else{
         constant_two += event.target.textContent;
+        x = constant_two;
+        checkDecimal(x);
         displayInput(constant_two);
     }
 }
 
+function getResult(event){
+    if(operator===""){
+        operator = event.target.textContent;
+    }
+    else{
+        this_result = operate(constant_one,constant_two,operator);
+        displayInput(this_result);
+        updateCalculations(this_result);
+        operator = event.target.textContent;
+    }
+}
+
+function updateCalculations(number){
+    constant_one = number;
+    constant_two = "";
+}
+
+function erase(){
+    display.textContent = "0";
+    operator = "";
+    constant_one = "";
+    constant_two = "";
+    this_result = 0;
+    a = 0;
+}
+
 numbers.forEach((element) => element.addEventListener("click", getNumbers));
+operators.forEach((element) => element.addEventListener("click",getResult));
+clear.addEventListener("click", erase);
+equals.addEventListener("click",getResult);
