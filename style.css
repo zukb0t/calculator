@@ -10,18 +10,43 @@
 }
 
 .display{
-    background-color:gray;
-    height:40px;
-    width:400px;
+    background-color:black;
+    color:white;
+    height:60px;
+    width:100%;
     font-size:36px;
     display:flex;
     justify-content:flex-end;
     align-items:center;
 }
 
+.input{
+    background-color:pink;
+    font-size:24px;
+}
+
+.operator{
+    background-color:red;
+    font-size:24px;
+}
+
+.equals{
+    background-color:green;
+    font-size:24px;
+}
+
+.clear{
+    background-color:orange;
+    font-size:24px;
+}
+
 .buttons{
-    gap:10px;
-    width:150px;
+    height:300px;
+    max-width:400px;
     display:flex;
     flex-wrap:wrap;
+}
+
+button{
+    flex: 1 25%;
 }
