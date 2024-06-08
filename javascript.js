@@ -45,7 +45,7 @@ function operate(num1, num2, operator){
                 a = divide(value1,value2);
             }
         break;
-    }
+    } 
     return Math.round(a * 100)/100;
 }
 
