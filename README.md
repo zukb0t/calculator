@@ -1,1 +1,3 @@
 # calculator
+
+Welcome to my calculator project. This project is basically a simple calculator that does basic addition, subtraction, multiplication, and division. It has taught me a lot of things from learning how to structure code and writing functions if more than one event does the same thing. For example, if the user clicks 9 + 9 and then clicks any of the four operators after, the calculator would do 9+9 first, display 18 and then do 18 with any given operator. The output would still be the same if the user did 9+9 and then clicked on the equal sign. This project has taught me the use of the event object when using event listeners, and it is a powerful tool. It also has good use of practicing html and css with flexbox and making a calculator layout.
