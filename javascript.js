@@ -21,7 +21,7 @@ const divide = (a,b) => a/b;
 //displayInputs displays values and checkDecimals checks if a number has more than two ".". For example, 5..55 is not allowed.
 const displayInput = (input) => display.textContent = input;
 const checkDecimal = (number) => number.split(".").length > 2 ? number.substring(0,number.length-1):number;
-
+const removeZero = (x) => x.substring(1,x.length-1);
 
 //operate will do the basic arithmetic and calls the arrow functions above.
 function operate(num1, num2, operator){
@@ -57,9 +57,14 @@ function getNumbers(event){
         displayInput(constant_one);
     }
     else{
+        if(constant_two==="0"){
+            constant_two = "";
+        }
+        else{
         constant_two += event.target.textContent;
         constant_two = checkDecimal(constant_two);
         displayInput(constant_two);
+        }
     }
 }
 
@@ -80,7 +85,7 @@ function getResult(event){
 //updates calculations when an operator or equal sign is clicked
 function updateCalculations(number){
     constant_one = number;
-    constant_two = "";
+    constant_two ="0";
 }
 
 
@@ -93,6 +98,7 @@ function erase(){
     this_result = 0;
     a = 0;
 }
+
 
 numbers.forEach((element) => element.addEventListener("click", getNumbers));
 operators.forEach((element) => element.addEventListener("click",getResult));
