@@ -21,7 +21,6 @@ const divide = (a,b) => a/b;
 //displayInputs displays values and checkDecimals checks if a number has more than two ".". For example, 5..55 is not allowed.
 const displayInput = (input) => display.textContent = input;
 const checkDecimal = (number) => number.split(".").length > 2 ? number.substring(0,number.length-1):number;
-const removeZero = (x) => x.substring(1,x.length-1);
 
 //operate will do the basic arithmetic and calls the arrow functions above.
 function operate(num1, num2, operator){
